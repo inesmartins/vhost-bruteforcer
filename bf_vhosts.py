@@ -50,10 +50,12 @@ args = parser.parse_args()
 if args.success is None and args.failure is None:
 	parser.error('Please specify either success (-s/--success) or failure (-f/--failure) content')
 
-print("Brute-force in progress ...")
-
+# opens and reads wordlist
 f = open(args.wordlist, "r")
 words = f.read().split("\n")
+
+# setup toolbar
+print('Brute-force in progress ...')
 
 for word in words:
 	vhost = word + '.' + args.domain
