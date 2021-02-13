@@ -35,3 +35,7 @@ for word in words:
 	# user specified success page content
 	if args.success is not None and args.success in res:
 		found_vhost("{word}.{args.domain}")
+
+	# user specified success page content
+	if args.failure is not None and args.success not in res:
+		found_vhost("{word}.{args.domain}")
