@@ -1,1 +1,1 @@
-# vhost-enum
+# vhost-bruteforcer
