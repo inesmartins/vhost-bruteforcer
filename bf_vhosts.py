@@ -14,12 +14,12 @@ def found_vhost(vhost):
 
 # parses arguments
 parser = argparse.ArgumentParser(description='Brute-forces vhosts for given --ip and based on specified domain and wordlist')
-parser.add_argument('-i', '--ip-address', dest='ip', type=str, required=True)
-parser.add_argument('-d', '--domain', dest='domain', type=str, required=True)
-parser.add_argument('-w', '--wordlist', dest='wordlist', metavar="FILE", type=lambda x: is_valid_file(parser, x), required=True)
-parser.add_argument('-s', '--success', dest='success', type=str, required=False)
-parser.add_argument('-f', '--failure', dest='failure', type=str, required=False)
-parser.add_argument('-o', '--output-file', dest='out_file', metavar='FILE', type=str, required=True)
+parser.add_argument('-i', '--ip-address', dest='ip', help='the IP to bruteforce', type=str, required=True)
+parser.add_argument('-d', '--domain', dest='domain', help='the domain that we\'ll use as suffix', type=str, required=True)
+parser.add_argument('-w', '--wordlist', dest='wordlist', help='contains the words we\'ll test', metavar="FILE", type=lambda x: is_valid_file(parser, x), required=True)
+parser.add_argument('-s', '--success', dest='success', help='specifies the content that will be compared agains the server response to find vhosts', type=str, required=False)
+parser.add_argument('-f', '--failure', dest='failure', help='specifies the content that will be compared agains the server response to discard vhosts', type=str, required=False)
+parser.add_argument('-o', '--output-file', dest='out_file', help='the script can write all vhosts to this file', metavar='FILE', type=str, required=True)
 args = parser.parse_args()
 
 if args.success is None and args.failure is None:
